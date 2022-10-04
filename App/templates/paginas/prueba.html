@@ -1,0 +1,145 @@
+ <!--acordeon-->
+ <div class="accordion" id="accordionExample">
+    {% for a in anho reversed %}
+    {% if forloop.first %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {{a.nombre}}
+
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!--tabs-->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {% for m in meses %}
+                    {% if forloop.last %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home1-tab" data-bs-toggle="tab"
+                            data-bs-target="#home1" type="button" role="tab" aria-controls="home1"
+                            aria-selected="true">{{m.nombre}}</button>
+                    </li>
+                    {% else %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="home{{m.nombre}}-tab" data-bs-toggle="tab"
+                            data-bs-target="#home{{m.nombre}}" type="button" role="tab"
+                            aria-controls="home{{m.nombre}}" aria-selected="true">{{m.nombre}}</button>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <div class="tab-content">
+                    {% for m in meses %}
+                    {% if forloop.last %}
+                    <div class="tab-pane active" id="home1" role="tabpanel" aria-labelledby="home1-tab">
+                        {% for d in documentos %}
+                            {% if d.anho_id.nombre == a.nombre %}
+                                {% if d.mes_id.nombre == m.nombre %}
+                                 {{d.mes_id.nombre}}{{d.anho_id.nombre}}
+                                {%endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="tab-pane " id="home{{m.nombre}}" role="tabpanel"
+                        aria-labelledby="home{{m.nombre}}-tab">
+                        {% for d in documentos %}
+                            {% if d.anho_id.nombre == a.nombre %}
+                                {% if d.mes_id.nombre == m.nombre %}
+                                 {{d.mes_id.nombre}}{{d.anho_id.nombre}}
+                                {%endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <script>
+                    var firstTabEl = document.querySelector('#myTab li:last-child a')
+                    var firstTab = new bootstrap.Tab(firstTabEl)
+
+                    firstTab.show()
+                </script>
+                <!--fin tabs-->
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{a.nombre}}">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse{{a.nombre}}" aria-expanded="true"
+                aria-controls="collapse{{a.nombre}}">
+                {{a.nombre}}
+            </button>
+        </h2>
+        <div id="collapse{{a.nombre}}" class="accordion-collapse collapse "
+            aria-labelledby="heading{{a.nombre}}" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!--tabs-->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    {% for m in meses %}
+                    {% if forloop.last %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home2{{a.nombre}}-tab" data-bs-toggle="tab"
+                            data-bs-target="#home2{{a.nombre}}" type="button" role="tab"
+                            aria-controls="home2{{a.nombre}}" aria-selected="true">{{m.nombre}}</button>
+                    </li>
+                    {% else %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link " id="home2{{a.nombre}}{{m.nombre}}-tab" data-bs-toggle="tab"
+                            data-bs-target="#home2{{a.nombre}}{{m.nombre}}" type="button" role="tab"
+                            aria-controls="home2{{a.nombre}}{{m.nombre}}"
+                            aria-selected="true">{{m.nombre}}</button>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+                <div class="tab-content">
+                    {% for m in meses %}
+                    {% if forloop.last %}
+                    <div class="tab-pane active" id="home2{{a.nombre}}" role="tabpanel"
+                        aria-labelledby="home2{{a.nombre}}-tab">{{a.nombre}}{{m.nombre}}...
+                        {% for d in documentos %}
+                            {% if d.anho_id.nombre == a.nombre %}
+                                {% if d.mes_id.nombre == m.nombre %}
+                                 {{d.mes_id.nombre}}{{d.anho_id.nombre}}
+                                {%endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="tab-pane " id="home2{{a.nombre}}{{m.nombre}}" role="tabpanel"
+                        aria-labelledby="home2{{a.nombre}}{{m.nombre}}-tab">{{a.nombre}}{{m.nombre}}...
+                        {% for d in documentos %}
+                            {% if d.anho_id.nombre == a.nombre %}
+                                {% if d.mes_id.nombre == m.nombre %}
+                                 {{d.mes_id.nombre}}{{d.anho_id.nombre}}
+                                {%endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+                <script>
+                    var firstTabEl = document.querySelector('#myTab li:last-child a')
+                    var firstTab = new bootstrap.Tab(firstTabEl)
+
+                    firstTab.show()
+                </script>
+                <!--fin tabs-->
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<!--fin acordeon-->

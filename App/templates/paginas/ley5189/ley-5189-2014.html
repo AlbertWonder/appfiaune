@@ -1,0 +1,366 @@
+{% extends "bases/base.html"%}
+
+{% block title %}Ley 5189-2014{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app/css/stylepagina.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/fonts.css'%}">
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.css'%}">
+<link rel="stylesheet" href="{% static 'app/css/sidebars.css'%}">
+{% endblock %}
+{% block body %}
+{% load static %}
+<div class="row w-100 p-5 mx-auto mt-5 ">
+    <div class="col-sm-9">
+        <!--texto -->
+        <h2 style="text-align: center;"><strong>Ley 5189/2014</strong></h2>
+        <p>Que establece la obligatoriedad de la provisión de informaciones en el uso de los recursos
+            públicos sobre remuneraciones y otras retribuciones asignadas al servidor público de la república del
+            Paraguay.
+            <a href="Documentos/Ley%205189_2014/ley-5189.pdf" aria-label="pdf" target="_blank"
+                rel="alternate noopener noreferrer">
+                <i class="bi bi-filetype-pdf my-auto mx-3 iconotabla">
+                </i>
+            </a>
+        </p>
+        <p>Resolución Rectorado Nº 1020/2016 por la cual se dispone que las unidades académicas que componen
+            la
+            Universidad
+            Nacional del Este, Realicen sus propias publicaciones en cuanto a la información en el uso de
+            los recursos
+            públicos sobre remuneraciones y otras retribuciones asignadas al servicio público en
+            cumplimiento a la ley
+            5189/2014.
+            <a href="Documentos/Ley%205189_2014/RES_DE_PUBLICACION_UNE.pdf" aria-label="pdf" target="_blank"
+                rel="alternate noopener noreferrer"><i class="bi bi-filetype-pdf my-auto mx-3 iconotabla">
+                </i>
+            </a>
+        </p>
+        <p>Resolución Decanato N° 137/2017 por la cual se encomienda a las diferentes dependencias
+            componentes de la
+            estructura orgánica de la Facultad de Ingeniería Agronómica de la Universidad Nacional del Este,
+            la
+            provisión de
+            la información establecida en el art. 3° de la ley Nº 5.189/2014.
+            <a href="Documentos/Ley%205189_2014/Res 137_Ley transparencia.pdf" aria-label="pdf" target="_blank"
+                rel="alternate noopener noreferrer">
+                <i class="bi bi-filetype-pdf my-auto mx-3 iconotabla">
+                </i>
+            </a>
+        </p>
+        <p style="text-align: left;"><span style="font-size: 12pt;"><strong><span
+                        style="font-family: tahoma, arial, helvetica, sans-serif;">Misión</span></strong></span>
+        </p>
+        <p>Formación de profesionales competentes en Ciencias Agrarias Ambientales y afines, en el marco del
+            desarrollo
+            sostenible a través de la docencia, investigación y extensión.</p>
+        <p style="text-align: left;"><span style="font-size: 12pt;"><strong><span
+                        style="font-family: tahoma, arial, helvetica, sans-serif;">Visión</span></strong></span>
+        </p>
+        <p>Ser una Institución de excelencia en la formación de profesionales en Ciencias Agrarias
+            Ambientales y afines,
+            acorde a los requerimientos del contexto nacional e Internacional</p>
+        <p><strong>Números Telefónicos e Internos por dependencias (Ver
+                Aqui)</strong>
+            <a href="Documentos/Ley%205189_2014/Internos.pdf" aria-label="pdf" target="_blank"
+                rel="alternate noopener noreferrer">
+                <i class="bi bi-filetype-pdf my-auto mx-3 iconotabla">
+                </i>
+            </a>
+        </p>
+        <p><strong>Direccion y Telefonos de la entidad por Dependencias (Ver Aqui)</strong> <a
+                href="Documentos/Ley%205189_2014/Direccion y Guia telefonica e internos.pdf" aria-label="pdf"
+                target="_blank" rel="alternate noopener noreferrer">
+                <i class="bi bi-filetype-pdf my-auto mx-3 iconotabla">
+                </i>
+            </a>
+        </p>
+
+        <!--acordeon-->
+        <div class="accordion" id="accordionExample">
+            {% for a in anho reversed %}
+            {% if forloop.first %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Cumplimiento de la Ley 5189/2014 - {{a.nombre}}
+
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- docuemntos anuales-->
+                        <br>
+                       {%for an in anuales %}
+                       {% if an.anho_id.nombre == a.nombre %}
+                        <ul class="list-group text-sm-left text-md-left">
+                            <li class="list-group-item"><a href="{{an.archivo.url}}">{{an.nombre}}</a></li>
+                          </ul>
+                          {%endif%}
+                          {%endfor%}
+                          <br>
+                          <br>
+                        <!-- fin docuemntos anuales-->
+                        <!--tabs-->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            {% for m in meses %}
+                            {% for de in documentos %}
+                            {% if forloop.last %}
+                            {% if de.mes_id.nombre == m.nombre%}
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home1-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home1" type="button" role="tab" aria-controls="home1"
+                                    aria-selected="true">{{m.nombre}}</button>
+                            </li>
+                            {% else %}
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link " id="home{{m.nombre}}-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home{{m.nombre}}" type="button" role="tab"
+                                    aria-controls="home{{m.nombre}}" aria-selected="true">{{m.nombre}}</button>
+                            </li>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor%}
+                            {% endfor %}
+                        </ul>
+
+                        <div class="tab-content text-sm-left text-md-left">
+                            {% for m in meses %}
+                            {% for de in documentos %}
+                            {% if forloop.last %}
+                            {% if de.mes_id.nombre == m.nombre%}
+                            <div class="tab-pane active" id="home1" role="tabpanel" aria-labelledby="home1-tab">
+                                <ul class="list-group">
+                                    {% for d in documentos %}
+                                    {% if d.anho_id.nombre == a.nombre %}
+                                    {% if d.mes_id.nombre == m.nombre %}
+                                    <li class="list-group-item">
+                                        <a href="{{d.archivo.url}}">{{d.categoria}}</a> |
+
+                                        <a href="{{d.archivo.url}}"><i class="bi bi-filetype-pdf my-auto mx-3 iconotabla"></i></a>
+                                    </li>
+                                    {%endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% else %}
+                            <div class="tab-pane " id="home{{m.nombre}}" role="tabpanel"
+                                aria-labelledby="home{{m.nombre}}-tab">
+                                <ul class="list-group">
+                                    {% for d in documentos %}
+                                    {% if d.anho_id.nombre == a.nombre %}
+                                    {% if d.mes_id.nombre == m.nombre %}
+                                    <li class="list-group-item">
+                                        <a href="{{d.archivo.url}}">{{d.categoria}}</a> |
+
+                                        <a href="{{d.archivo.url}}"><i class="bi bi-filetype-pdf my-auto mx-3 iconotabla"></i></a>
+                                    </li>
+                                    {%endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                            {% endfor %}
+                        </div>
+
+                        <script>
+                            var firstTabEl = document.querySelector('#myTab li:last-child a')
+                            var firstTab = new bootstrap.Tab(firstTabEl)
+
+                            firstTab.show()
+                        </script>
+                        <!--fin tabs-->
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{a.nombre}}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse{{a.nombre}}" aria-expanded="true"
+                        aria-controls="collapse{{a.nombre}}">
+                        Cumplimiento de la Ley 5189/2014 - {{a.nombre}}
+                    </button>
+                </h2>
+                <div id="collapse{{a.nombre}}" class="accordion-collapse collapse "
+                    aria-labelledby="heading{{a.nombre}}" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                         <!-- docuemntos anuales-->
+                         <br>
+                         {%for an in anuales %}
+                         {% if an.anho_id.nombre == a.nombre %}
+                          <ul class="list-group text-sm-left text-md-left">
+                              <li class="list-group-item"><a href="{{an.archivo.url}}">{{an.nombre}}</a></li>
+                            </ul>
+                            {%endif%}
+                            {%endfor%}
+                            <br>
+                            <br>
+                          <!-- fin docuemntos anuales-->
+                        <!--tabs-->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            {% for m in meses %}
+                            {% if forloop.last %}
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home2{{a.nombre}}-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home2{{a.nombre}}" type="button" role="tab"
+                                    aria-controls="home2{{a.nombre}}" aria-selected="true">{{m.nombre}}</button>
+                            </li>
+                            {% else %}
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link " id="home2{{a.nombre}}{{m.nombre}}-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home2{{a.nombre}}{{m.nombre}}" type="button" role="tab"
+                                    aria-controls="home2{{a.nombre}}{{m.nombre}}"
+                                    aria-selected="true">{{m.nombre}}</button>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+
+                        <div class="tab-content text-sm-left text-md-left">
+                            {% for m in meses %}
+                            {% if forloop.last %}
+                            <div class="tab-pane active" id="home2{{a.nombre}}" role="tabpanel"
+                                aria-labelledby="home2{{a.nombre}}-tab">
+                                <ul class="list-group">
+                                    {% for d in documentos %}
+                                    {% if d.anho_id.nombre == a.nombre %}
+                                    {% if d.mes_id.nombre == m.nombre %}
+                                    <li class="list-group-item">
+                                        <a href="{{d.archivo.url}}">{{d.categoria}}</a> |
+                                        <a href="{{d.archivo.url}}"><i class="bi bi-filetype-pdf my-auto mx-3 iconotabla"></i></a>
+                                    </li>
+                                    {%endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% else %}
+                            <div class="tab-pane " id="home2{{a.nombre}}{{m.nombre}}" role="tabpanel"
+                                aria-labelledby="home2{{a.nombre}}{{m.nombre}}-tab">
+                                    {% for d in documentos %}
+                                    {% if d.anho_id.nombre == a.nombre %}
+                                    {% if d.mes_id.nombre == m.nombre %}
+                                    <li class="list-group-item">
+                                        <a href="{{d.archivo.url}}">{{d.categoria}}</a> |
+                                        <a href="{{d.archivo.url}}"><i class="bi bi-filetype-pdf my-auto mx-3 iconotabla"></i></a>
+                                    </li>
+                                    {%endif %}
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <script>
+                            var firstTabEl = document.querySelector('#myTab li:last-child a')
+                            var firstTab = new bootstrap.Tab(firstTabEl)
+
+                            firstTab.show()
+                        </script>
+                        <!--fin tabs-->
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!--fin acordeon-->
+    </div>
+
+    <div class="col-sm-3">
+        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                <svg class="bi pe-none me-2" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-5 fw-semibold" _msthash="709293" _msttexthash="109512">Plegable</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true"
+                        _msthash="1079117" _msttexthash="59059"> Hogar </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659334" _msttexthash="250575">Visión general</a></li>
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659516" _msttexthash="289172">Actualizaciones</a></li>
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659698" _msttexthash="115752">Informes</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false"
+                        _msthash="1079364" _msttexthash="177827"> Salpicadero </button>
+                    <div class="collapse" id="dashboard-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="897819" _msttexthash="118079" _msthidden="1">Overview</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898001" _msttexthash="78468" _msthidden="1">Weekly</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898183" _msttexthash="98670" _msthidden="1">Monthly</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898365" _msttexthash="116428" _msthidden="1">Annually</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false"
+                        _msthash="1079611" _msttexthash="106808"> Órdenes </button>
+                    <div class="collapse" id="orders-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758628" _msttexthash="31525" _msthidden="1">New</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758810" _msttexthash="134693" _msthidden="1">Processed</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758992" _msttexthash="93886" _msthidden="1">Shipped</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="759174" _msttexthash="115479" _msthidden="1">Returned</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-top my-3"></li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false"
+                        _msthash="1080105" _msttexthash="76102"> Cuenta </button>
+                    <div class="collapse" id="account-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="804986" _msttexthash="51259" _msthidden="1">New...</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805168" _msttexthash="94315" _msthidden="1">Profile</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805350" _msttexthash="117221" _msthidden="1">Settings</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805532" _msttexthash="98553" _msthidden="1">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js%}
+<script src="{% static 'app/js/core.min.js' %}"></script>
+<script src="{% static 'app/js/script.js' %}"></script>
+<script src="{% static 'app/js/sidebars.js' %}"></script>
+{% endblock %}

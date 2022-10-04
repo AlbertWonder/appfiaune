@@ -1,0 +1,114 @@
+{% extends "bases/base.html"%}
+
+{% block title %}MECIP{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app/css/stylepagina.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/fonts.css'%}">
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.css'%}">
+<link rel="stylesheet" href="{% static 'app/css/sidebars.css'%}">
+{% endblock %}
+{% block body %}
+{% load static %}
+<div class="row w-100 p-5 mx-auto mt-5 ">
+    <div class="col-sm-9">
+        <!--texto -->
+        <h2 style="text-align: center;"><strong>Misión:</strong></h2>
+
+        <p>Formación de profesionales competentes en Ciencias Agrarias, Ambientales y afines, en el marco del desarrollo
+            sostenible a través de la docencia, investigación y extensión.</p>
+        <h2 style="text-align: center;"><strong>Visión:</strong></h2>
+        <p>Ser una Institución de excelencia en la formación de profesionales en Ciencias Agrarias, Ambientales y
+            afines, acorde a los requerimientos del contexto Nacional e Internacional
+        </p>
+
+
+    </div>
+
+    <div class="col-sm-3">
+        <div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                <svg class="bi pe-none me-2" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-5 fw-semibold" _msthash="709293" _msttexthash="109512">Plegable</span>
+            </a>
+            <ul class="list-unstyled ps-0">
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true"
+                        _msthash="1079117" _msttexthash="59059"> Hogar </button>
+                    <div class="collapse show" id="home-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659334" _msttexthash="250575">Visión general</a></li>
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659516" _msttexthash="289172">Actualizaciones</a></li>
+                            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="659698" _msttexthash="115752">Informes</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false"
+                        _msthash="1079364" _msttexthash="177827"> Salpicadero </button>
+                    <div class="collapse" id="dashboard-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="897819" _msttexthash="118079" _msthidden="1">Overview</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898001" _msttexthash="78468" _msthidden="1">Weekly</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898183" _msttexthash="98670" _msthidden="1">Monthly</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="898365" _msttexthash="116428" _msthidden="1">Annually</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false"
+                        _msthash="1079611" _msttexthash="106808"> Órdenes </button>
+                    <div class="collapse" id="orders-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758628" _msttexthash="31525" _msthidden="1">New</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758810" _msttexthash="134693" _msthidden="1">Processed</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="758992" _msttexthash="93886" _msthidden="1">Shipped</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="759174" _msttexthash="115479" _msthidden="1">Returned</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="border-top my-3"></li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                        data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false"
+                        _msthash="1080105" _msttexthash="76102"> Cuenta </button>
+                    <div class="collapse" id="account-collapse" _msthidden="4">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small" _msthidden="4">
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="804986" _msttexthash="51259" _msthidden="1">New...</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805168" _msttexthash="94315" _msthidden="1">Profile</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805350" _msttexthash="117221" _msthidden="1">Settings</a></li>
+                            <li _msthidden="1"><a href="#" class="link-dark d-inline-flex text-decoration-none rounded"
+                                    _msthash="805532" _msttexthash="98553" _msthidden="1">Sign out</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js%}
+<script src="{% static 'app/js/core.min.js' %}"></script>
+<script src="{% static 'app/js/script.js' %}"></script>
+<script src="{% static 'app/js/sidebars.js' %}"></script>
+{% endblock %}

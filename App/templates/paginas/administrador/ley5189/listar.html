@@ -1,0 +1,60 @@
+{% extends 'bases/baseadmin.html' %}
+{% block title %}Administrador {% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="card-title">Lista de Documentos</h4>
+        <p class="card-text">Ley 5189/2014</p>
+        <hr>
+        {% if perms.App.add_documentos_ley%}
+        <a href="{% url 'agregar_documentos' %}" class="btn btn-success btn-sm" >Nuevo Documento</a>
+        {% endif %}
+        <table class="table table-striped table hover table-resposive-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Año </th>
+                    <th>MES</th>
+                    <th>CATEGORIA</th>
+                    <th>DOCUMENTO</th>
+                    <th>ACCION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in documentos %}
+                <tr>
+                    <td scope="row">{{d.id}}</td>
+                    <td>{{d.anho_id}}</td>
+                    <td>{{d.mes_id}}</td>
+                    <td>{{d.categoria_id}}</td>
+                    <td>{{d.archivo}}</td>
+                    <td>
+                        {% if perms.App.change_documentos_ley%}
+                        <a href="{% url 'modificar_documentos' d.id %}" class="btn btn-info btn-sm"> Modificar</a>
+                        {% endif %}
+                        &nbsp;
+                        {% if perms.App.delete_documentos_ley%}
+                        <a href="{% url 'eliminar_documentos' d.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        {% endif%}
+
+                    </td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+
+        {% include 'paginas/paginator.html' %}
+    </div>
+</div>
+
+
+{% endblock %}

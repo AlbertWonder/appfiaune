@@ -1,0 +1,437 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="shortcut icon" href="{% static 'app/img/fia.png' %}">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  {% block css %}
+
+  {% endblock %}
+  <link rel="stylesheet" href="{% static 'app/css/stylepagina.css' %}">
+  <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'app/css/megamenu.css'%}">
+  <link rel="stylesheet" href="{% static 'app/css/footer.css'%}">
+  <link rel="stylesheet" href="{% static 'app/css/sliderlogos.css'%}">
+</head>
+
+<body class="text-center">
+  <!--===============================================-->
+  <!--===============MEMU======================-->
+  <!--===============================================-->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Tenth navbar example" id="menup">
+      <div class="container-fluid w-75">
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarp"
+          aria-controls="navbarp" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-md-center " id="navbarp">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+            </li>
+            <li class="nav-item dropdown hover">
+              <a class="nav-link dropdown-toggle" href="#" id="institucional" data-bs-toggle="dropdown"
+                aria-expanded="false">Institucional</a>
+              <ul class="dropdown-menu animate fade-down" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="{% url 'nuestra_historia' %}">Nuestra Historia</a></li>
+                <li><a class="dropdown-item" href="{% url 'mision_y_vision' %}">Misión y Visión</a></li>
+                <li><a class="dropdown-item" href="{% url 'directivos' %}">Directivos</a></li>
+                <li><a class="dropdown-item" href="{% url 'consejo_directivo' %}">Miembros del consejo Directivo</a></li>
+                <li><a class="dropdown-item" href="{% url 'marco_legal' %}">Marco Legal</a></li>
+              </ul>
+            </li>
+            <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="academia" data-bs-toggle="dropdown"
+                aria-expanded="false">Académica</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="#">¿ Quiénes somos?</a></li>
+                <li><a class="dropdown-item" href="#">Misión y Visión</a></li>
+                <li><a class="dropdown-item" href="#">Directivos</a></li>
+                <li><a class="dropdown-item" href="#">Miembros del consejo Directivo</a></li>
+                <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+              </ul>
+            </li>-->
+            <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="posgrado" data-bs-toggle="dropdown"
+                aria-expanded="false">Posgrado</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
+                <li><a class="dropdown-item" href="#">Maestría en Auditoria y Gestión Ambiental</a></li>
+                <li><a class="dropdown-item" href="#">Maestría en Nutrición de Plantas y Producción Agrícola</a></li>
+                <li><a class="dropdown-item" href="#">Maestría en Agronegocios</a></li>
+                <li><a class="dropdown-item" href="#">Maestría en Agricultura Sostenible</a></li>
+              </ul>
+            </li>-->
+            <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="extension" data-bs-toggle="dropdown"
+                aria-expanded="false">Extensión</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
+                <li><a class="dropdown-item" href="#">Misión y Visión</a></li>
+                <li><a class="dropdown-item" href="#">Directivos</a></li>
+                <li><a class="dropdown-item" href="#">Miembros del consejo Directivo</a></li>
+                <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+              </ul>
+            </li>-->
+            <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="investigacion" data-bs-toggle="dropdown"
+                aria-expanded="false">Investigación</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
+                <li><a class="dropdown-item" href="#">Misión y Visión</a></li>
+                <li><a class="dropdown-item" href="#">Directivos</a></li>
+                <li><a class="dropdown-item" href="#">Miembros del consejo Directivo</a></li>
+                <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+              </ul>
+            </li>-->
+            <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="bienestar" data-bs-toggle="dropdown"
+                aria-expanded="false">Bienestar</a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownp">
+                <li><a class="dropdown-item" href="#">Nuestra Historia</a></li>
+                <li><a class="dropdown-item" href="#">Misión y Visión</a></li>
+                <li><a class="dropdown-item" href="#">Directivos</a></li>
+                <li><a class="dropdown-item" href="#">Miembros del consejo Directivo</a></li>
+                <li><a class="dropdown-item" href="#">Marco Legal</a></li>
+              </ul>
+            </li>-->
+            <!--<li class="nav-item">
+              <a class="nav-link" href="#">Egresados</a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mecip'%}">MECIP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'ley_5189_2014'%}">Transparencia</a>
+            </li>
+          </ul>
+          </li>
+          </ul>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser1"
+              data-bs-toggle="dropdown" aria-expanded="false">
+
+              <img src="{% static 'app/img/usuario.jpg' %}" alt="mdo" width="32" height="32" class="rounded-circle">
+            </a>
+            {% if user.is_autenticated %}
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+            </ul>
+            {% else %}
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+
+              <li><a class="dropdown-item" href="{% url 'administrador' %}">Iniciar Sesión</a></li>
+            </ul>
+
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--===============================================-->
+  <!--===============INTRO======================-->
+  <!--===============================================-->
+  <header class="bg-success" id="headerp">
+    <div class="row  w-75 mx-auto">
+      <div class="container">
+        <div class="row  ">
+          <div class="col-sm-5">
+            <img src="{% static 'app/img/logopagina.png' %}" class="img-fluid" alt="FIA-UNE" href="#">
+          </div>
+          <div class="col-sm"></div>
+          <div class="col-sm-4 mt-4 ">
+            <form class="d-flex ">
+              <input class="form-control me-2 " type="Buscar" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--===============================================-->
+  <!--===============MENU SECUNDARIO======================-->
+  <!--===============================================-->
+  <nav class="navbar navbar-expand-lg navbar-dark  text-center" aria-label="Tenth navbar example" id="menusecundario">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-md-center" id="main_nav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://moodle.fia.une.edu.py/2022/">Plataforma Moodle</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://fia.une.edu.py/Osticket/upload/">Plataforma Osticket</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{%url 'noticias' %}">Noticias</a>
+          </li>
+          <li class="nav-item dropdown has-megamenu">
+            <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" aria-expanded="false"> Estudiantes
+            </a>
+            <div class="dropdown-menu megamenu mx-auto">
+              <div class="row g-3">
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu One</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Two</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Three</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div>
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Four</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+              </div><!-- end row -->
+            </div> <!-- dropdown-mega-menu.// -->
+          </li>
+          <li class="nav-item dropdown has-megamenu">
+            <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" aria-expanded="false"> Admisión y
+              oferta
+            </a>
+            <div class="dropdown-menu megamenu mx-auto">
+              <div class="row g-3">
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu One</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Two</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Three</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div>
+                <div class="col-lg-3 col-6">
+                  <div class="col-megamenu">
+                    <h6 class="title">Title Menu Four</h6>
+                    <ul class="list-unstyled">
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                      <li><a class="dropdown-item" href="#">Custom Menu</a></li>
+                    </ul>
+                  </div> <!-- col-megamenu.// -->
+                </div><!-- end col-3 -->
+              </div><!-- end row -->
+            </div> <!-- dropdown-mega-menu.// -->
+          </li>
+        </ul>
+      </div> <!-- navbar-collapse.// -->
+    </div> <!-- container-fluid.// -->
+  </nav>
+  {% block body %}
+
+  {% endblock %}
+  <!--===============================================-->
+  <!--===============PIE DE PAGINA======================-->
+  <!--===============================================-->
+  <!-- Page Footer-->
+  <footer class="section footer-corporate context-dark">
+    <div class="footer-corporate-inset">
+      <div class="container">
+        <div class="row row-40 justify-content-lg-between">
+          <div class="col-sm-6 col-md-12 col-lg-3 col-xl-4">
+            <div class="oh-desktop">
+              <div class="wow slideInRight" data-wow-delay="0s">
+                <h6 class="text-spacing-100 text-uppercase">Contactanos</h6>
+                <ul class="footer-contacts d-inline-block d-sm-block">
+                  <li>
+                    <div class="unit">
+                      <div class="unit-left"><span class="icon fa fa-phone"></span></div>
+                      <div class="unit-body"><a class="link-phone" href="tel:#">+1 323-913-4688</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit">
+                      <div class="unit-left"><span class="icon fa fa-envelope"></span></div>
+                      <div class="unit-body"><a class="link-aemail" href="mailto:#">secretgeneral@fia.une.edu.py</a></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="unit">
+                      <div class="unit-left"><span class="icon fa fa-location-arrow"></span></div>
+                      <div class="unit-body"><a class="link-location" href="#">km 17 1/2, Minga Guazú,
+                        Alto Paraná - Paraguay</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-5 col-lg-3 col-xl-4">
+            <div class="oh-desktop">
+              <div class="wow slideInDown" data-wow-delay="0s">
+                <h6 class="text-spacing-100 text-uppercase">Noticias Populares</h6>
+               <!-- Post Minimal 2-->
+                <article class="post post-minimal-2">
+                  <p class="post-minimal-2-title"><a href="#">Your Personal Guide to 5 Best Places to Visit on Earth</a>
+                  </p>
+                  <div class="post-minimal-2-time">
+                    <time datetime="2019-05-04">May 04, 2019</time>
+                  </div>
+                </article>
+                <!-- Post Minimal 2-->
+                <article class="post post-minimal-2">
+                  <p class="post-minimal-2-title"><a href="#">Top 10 Hotels: Rating by Wonder Tour Travel Experts</a>
+                  </p>
+                  <div class="post-minimal-2-time">
+                    <time datetime="2019-05-04">May 04, 2019</time>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-11 col-md-7 col-lg-5 col-xl-4">
+            <div class="oh-desktop">
+              <div class="wow slideInLeft" data-wow-delay="0s">
+                <h6 class="text-spacing-100 text-uppercase">Quick links</h6>
+                <ul class="row-6 list-0 list-marked list-marked-md list-marked-secondary list-custom-2">
+                  <li><a href="about.html">About us</a></li>
+                  <li><a href="#">Our Tours</a></li>
+                  <li><a href="#">Our Team</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Blog</a></li>
+                </ul>
+                <div class="group-md group-middle justify-content-sm-start"><a
+                    class="button button-lg button-primary button-ujarak" href="#">Get in touch</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-corporate-bottom-panel">
+      <div class="container">
+        <div class="row justfy-content-xl-space-berween row-10 align-items-md-center2">
+          <div class="col-sm-6 col-md-4 text-sm-right text-md-center">
+            <div>
+              <ul class="list-inline list-inline-sm footer-social-list-2">
+                <li><a class="icon fa fa-facebook" href="#"></a></li>
+                <li><a class="icon fa fa-twitter" href="#"></a></li>
+                <li><a class="icon fa fa-google-plus" href="#"></a></li>
+                <li><a class="icon fa fa-instagram" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4 order-sm-first">
+            <!-- Rights-->
+            <p class="rights"><span>&copy;&nbsp;</span><span
+                class="copyright-year"></span><span>&nbsp;</span><span>FIA-UNE</span>. Todos los Derechos Reservados.
+              Desarrollado por la Direccion innovacion Tecnologica
+              <a href="#">Alberto Rotela V.</a>
+            </p>
+          </div>
+          <div class="col-sm-6 col-md-4 text-md-right">
+            <p class="rights"><a href="#">Politicas de Privacidad</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--===============================================-->
+  <!--===============PIE DE PAGINA======================-->
+  <!--===============================================-->
+  
+  <script src="{% static 'app/js/core.min.js' %}"></script>
+  <script src="{% static 'app/js/script.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+
+  {% block js%}
+  {% endblock %}
+  <a href="#" id="ui-to-top" class="ui-to-top fa fa-angle-up active"></a>
+</body>
+
+</html>

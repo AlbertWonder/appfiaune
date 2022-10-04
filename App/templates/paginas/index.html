@@ -1,0 +1,243 @@
+{% extends "bases/base.html"%}
+
+{% block title %}Facultad de Ingeniería Agronómica FIA-UNE{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'app/css/stylepagina.css' %}">
+<link rel="stylesheet" href="{% static 'app/css/fonts.css'%}">
+<link rel="stylesheet" href="{% static 'app/css/bootstrap.css'%}">
+{% endblock %}
+{% block body %}
+{% load static %}
+<!--===============================================-->
+<!--===============SLIDER======================-->
+<!--===============================================-->
+<div id="carouselExampleDark" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="{% static 'app/img/slider-4-slide-1-1920x678.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'app/img/slider-4-slide-2-1920x678.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="{% static 'app/img/slider-4-slide-3-1920x678.jpg' %}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!--===============================================-->
+<!--===============TARJETAS======================-->
+<!--===============================================-->
+<!-- Section Box Categories-->
+<section class="section section-lg section-top-1 bg-gray-4">
+    <div class="container offset-negative-1">
+        <div class="box-categories cta-box-wrap">
+            <div class="box-categories-content">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                        <ul class="list-marked-2 box-categories-list">
+                            <li><a href="#"><img src="{% static 'app/img/cta-1-368x420.jpg' %}" alt="" width="368"
+                                        height="420" /></a>
+                                <h5 class="box-categories-title"> INGENIERÍA AGRONÓMICA</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                        <ul class="list-marked-2 box-categories-list">
+                            <li><a href="#"><img src="{% static 'app/img/cta-2-368x420.jpg' %}" alt="" width="368"
+                                        height="420" /></a>
+                                <h5 class="box-categories-title"> INGENIERÍA AMBIENTAL</h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 wow fadeInDown col-9" data-wow-delay=".2s">
+                        <ul class="list-marked-2 box-categories-list">
+                            <li><a href="#"><img src="{% static 'app/img/cta-3-368x420.jpg' %}" alt="" width="368"
+                                        height="420" /></a>
+                                <h5 class="box-categories-title">POSGRADO</h5>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div><a class="link-classic wow fadeInUp" href="#">Other Tours<span></span></a>
+        <!-- Owl Carousel-->
+    </div>
+</section>
+</div>
+      <!--	Our Services-->
+      <section class="section section-sm">
+        <div class="container">
+          <h3>Our Services</h3>
+          <div class="row row-30">
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-equalization3"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Personalized Matching</a></h5>
+                    <p class="box-icon-classic-text">Our unique matching system lets you find just the tour you want for your next holiday.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-circular220"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Wide Variety of Tours</a></h5>
+                    <p class="box-icon-classic-text">We offer a wide variety of personally picked tours with destinations all over the globe.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-favourites5"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Highly Qualified Service</a></h5>
+                    <p class="box-icon-classic-text">Our tour managers are qualified, skilled, and friendly to bring you the best service.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-headphones32"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">24/7 Support</a></h5>
+                    <p class="box-icon-classic-text">You can always get professional support from our staff 24/7 and ask any question you have.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-hot67"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Handpicked Hotels</a></h5>
+                    <p class="box-icon-classic-text">Our team offers only the best selection of affordable and luxury hotels to our clients.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <article class="box-icon-classic">
+                <div class="unit box-icon-classic-body flex-column flex-md-row text-md-left flex-lg-column text-lg-center flex-xl-row text-xl-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon fl-bigmug-line-wallet26"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Best Price Guarantee</a></h5>
+                    <p class="box-icon-classic-text">If you find tours that are cheaper than ours, we will compensate the difference.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- blog noticias-->
+      <h3>Noticias</h3>
+      <div class="container">
+
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+
+          <div class="col-md-8">
+            <h3>Noticia Destacada </h3>
+            <!--noticia principal-->
+            <div class="card border-dark mb-3" style="max-width: 55rem;">
+              {% for np in documentos %}
+              {% if np.status == "destacado" %}
+
+              {% if forloop.counter == 1%}
+                  <div class="card-header">{{np.categoria_id.nombre}}</div>
+                    <img src="{{np.imagen.url}}" class="card-img-top" alt="...">
+                    <div class="card-body text-dark">
+                    <h5 class="card-title">{{np.titulo}}</h5>
+                    <p class="card-text">{{np.extracto}}</p>
+                    <p class="card-text">{{np.contenido | truncatechars:350 | safe}}</p>
+                    <a class="button button-black-outline button-ujarak" href="{% url 'noticias_detalles' np.slug %}">Leer Mas...</a>
+                  </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <!--fin noticia principal-->
+          </div>
+          <div class="col-6 col-md-4">
+            <!-- otras noticia -->
+            <h3>Otras Noticias</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+              {% for on in documentos %}
+              {% if on.status == "publicado" or "destacado" %}
+              {% if not forloop.first %}
+              <div class="col">
+                <div class="card">
+                  <img src="{{on.imagen.url}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="on.titulo">{{on.titulo}}</h5>
+                    <p class="card-text">{{on.extracto | truncatechars:30}}</p>
+                    <p class="card-text">{{on.contenido | truncatechars:100 |safe}}</p>
+                    <a href="{% url 'noticias_detalles' on.slug %}" class="card-link">Leer Mas...</a>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+              </div>
+
+            </div>
+            <!--fin otras noticia -->
+          </div>
+        </div>
+      <!--fin blog noticias-->
+{% endblock %}
+{% block js%}
+<script src="{% static 'app/js/core.min.js' %}"></script>
+<script src="{% static 'app/js/script.js' %}"></script>
+{% endblock %}

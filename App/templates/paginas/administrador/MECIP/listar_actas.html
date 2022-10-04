@@ -1,0 +1,60 @@
+{% extends 'bases/baseadmin.html' %}
+{% block title %}Administrador {% endblock %}
+
+
+{% block js %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="card-title">Lista de Actas</h4>
+        <p class="card-text">Ley 5189/2014</p>
+        <hr>
+        {% if perms.App.add_actas_MECIP%}
+        <a href="{% url 'agregar_actas' %}" class="btn btn-success btn-sm" >Nueva Categoria</a>
+        {% endif %}
+        <table class="table table-striped table-hover table-responsive-sm">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Acta</th>
+                    <th>Año</th>
+                    <th>Descripcion</th>
+                    <th>Documento</th>
+                    <th>ACCION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for a in documentos %}
+                <tr>
+                    <td scope="row">{{a.id}}</td>
+                    <td>{{a.resolucion}}</td>
+                    <td>{{a.anho}}</td>
+                    <td>{{a.descripcion}}</td>
+                    <td>{{a.archivo}}</td>
+                    <td>
+                        {% if perms.App.change_actas_MECIP%}
+                        <a href="{% url 'modificar_actas' a.id %}" class="btn btn-info btn-sm"> Modificar</a>
+                        {% endif %}
+                        &nbsp;
+                        {% if perms.App.delete_actas_MECIP%}
+                        <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                        {% endif%}
+
+                    </td>
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+
+        {% include 'paginas/paginator.html' %}
+    </div>
+</div>
+<!---->
+
+{% endblock %}

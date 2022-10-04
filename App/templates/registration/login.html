@@ -1,0 +1,32 @@
+{% extends 'bases/baselogin.html' %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block body %}
+{% load static %}
+<div Class="container"> <img src="{% static 'app/img/logopagina.png' %}" class="img-fluid" alt="FIA-UNE" href="#">
+</div>
+   {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class= "alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+<div class="login">
+ 
+    <form class="form-signin" method="POST" action="">
+        {% csrf_token %}
+    <h1>Registrese</h1>
+       <input type="text" id="username" name="username" placeholder="Username" value ="" required="required" />
+       <input type="password" id= "password" name="password" placeholder="Password" required="required" />
+       <button type="submit" class="btn btn-primary btn-block btn-large">Déjame entrar.</button>
+    </form>
+        <div class="footer">
+            <p class="mt-5 mb-3  text-secondary text-center" >© 2022–Wonder</p>
+        </div>
+</div>
+
+
+{% endblock %}

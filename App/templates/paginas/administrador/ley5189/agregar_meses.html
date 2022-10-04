@@ -1,0 +1,30 @@
+{% extends 'bases/baseadmin.html' %}
+{% block title %}Administrador {% endblock %}
+{% block contenido %}
+
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Agregar Meses</h4>
+                <p class="card-text">Ley 5189/2014</p>
+                <form action="" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    {{form | crispy}}
+                    <div class="d-flex justify-content-end">
+                        <input type="reset" value="Cancelar" class="btn btn-secondary">
+                       &nbsp;
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                    </div>
+
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
